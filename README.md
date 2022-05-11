@@ -42,4 +42,5 @@
 
 ## 使用方式
 
-- 将 [project.config.json](./project.config.json) 中的 `appid` 修改为自己的微信 appid
+- 将 [project.config.json](./project.config.json) 中的 `appid` 修改为自己的微信小程序的 `appid`
+- [使用版本 v1.10.3](https://github.com/youzan/vant-weapp/releases/tag/v1.10.3)
