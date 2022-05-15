@@ -126,6 +126,7 @@ App({
   // 授权服务地址：授权类型为密码模式
   // 客户端类型：wechat_applet（代表微信小程序）
   tokenHost() {
+    // 此处发送的 client_secret 可以进行加密、签名，并在 https://gitee.com/xuxiaowei-cloud/xuxiaowei-cloud/blob/main/authorization-server/src/main/java/cloud/xuxiaowei/authorizationserver/service/impl/ClientPasswordEncoderImpl.java 中进行验证加密、签名
     return `${this.host}/authorization-server/oauth/token?grant_type=password&client_type=wechat_applet&client_id=${this.client_id}&client_secret=${this.client_secret}`
   },
   // 小程序服务地址
