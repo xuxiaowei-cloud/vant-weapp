@@ -1,5 +1,3 @@
 {
-  "usingComponents": {
-    "van-button": "/libs/vant/button/index"
-  }
+  "usingComponents": {}
 }
