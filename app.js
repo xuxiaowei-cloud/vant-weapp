@@ -131,9 +131,9 @@ App({
   // 小程序服务地址
   host: 'http://gateway.example.xuxiaowei.cloud:1101',
   // 密码模式下的客户ID（为了保证安全，请给该用户仅授权：password 模式）
-  client_id: 'xuxiaowei_client_wechat_id',
+  client_id: 'xuxiaowei_client_wechat_applet_id',
   // 密码模式下的客户凭证
-  client_secret: 'xuxiaowei_client_wechat_secret',
+  client_secret: 'xuxiaowei_client_wechat_applet_secret',
   // 正常响应代码
   ok: '000000'
 })
