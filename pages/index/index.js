@@ -47,5 +47,8 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  globalData(e) {
+    console.log(app.globalData)
   }
 })

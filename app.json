@@ -1,13 +1,18 @@
 {
-  "pages":[
+  "pages": [
     "pages/index/index",
     "pages/logs/logs"
   ],
-  "window":{
-    "backgroundTextStyle":"light",
+  "window": {
+    "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarTextStyle":"black"
+    "navigationBarTitleText": "徐晓伟微服务",
+    "navigationBarTextStyle": "black"
+  },
+  "usingComponents": {
+    "van-button": "/libs/vant/button/index",
+    "van-dialog": "/libs/vant/dialog/index",
+    "van-notify": "/libs/vant/notify/index"
   },
   "sitemapLocation": "sitemap.json"
 }
