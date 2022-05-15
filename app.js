@@ -38,45 +38,9 @@ App({
                 this.globalData.appid = data.appid
                 this.globalData.openid = data.openid
 
-                // 发送 res.code 到后台换取 openId, sessionKey, unionId, access_token, refresh_token
-                wx.login({
-                  success: res => {
-                    if (res.code) {
+                // 授权
+                this.accessToken()
 
-                      // 获取 access_token, refresh_token
-                      wx.request({
-                        url: this.tokenHost() + '&appid=' + this.globalData.appid + '&username=' + this.globalData.openid + '&password=' + res.code,
-                        method: 'POST',
-                        success: res => {
-                          console.log('授权结果', res)
-                          const resData = res.data
-                          const access_token = resData.access_token
-                          if (access_token) {
-                            Notify({
-                              type: 'success',
-                              duration: 1000,
-                              message: '授权成功！'
-                            })
-
-                            this.globalData.access_token = access_token
-                            // 当且仅当拥有 refresh_token 授权类型时才有该值（如需实时生效，需要清空权限表、刷新权限表）
-                            this.globalData.refresh_token = resData.refresh_token
-                            this.globalData.jti = resData.jti
-                            this.globalData.scope = resData.scope
-                            this.globalData.expires_in = Date.now() + resData.expires_in * 1000
-                          } else {
-                            Dialog.alert({
-                              title: '授权异常',
-                              message: resData.msg,
-                            }).then(() => {
-                              // on close
-                            })
-                          }
-                        }
-                      })
-                    }
-                  }
-                })
               } else {
                 console.error('登录失败！', resData.msg)
 
@@ -97,6 +61,48 @@ App({
             message: res.errMsg,
           }).then(() => {
             // on close
+          })
+        }
+      }
+    })
+  },
+  // 授权
+  accessToken() {
+    // 发送 res.code 到后台换取 openId, sessionKey, unionId, access_token, refresh_token
+    wx.login({
+      success: res => {
+        if (res.code) {
+
+          // 获取 access_token, refresh_token
+          wx.request({
+            url: this.tokenHost() + '&appid=' + this.globalData.appid + '&username=' + this.globalData.openid + '&password=' + res.code,
+            method: 'POST',
+            success: res => {
+              console.log('授权结果', res)
+              const resData = res.data
+              const access_token = resData.access_token
+              if (access_token) {
+                Notify({
+                  type: 'success',
+                  duration: 1000,
+                  message: '授权成功！'
+                })
+
+                this.globalData.access_token = access_token
+                // 当且仅当拥有 refresh_token 授权类型时才有该值（如需实时生效，需要清空权限表、刷新权限表）
+                this.globalData.refresh_token = resData.refresh_token
+                this.globalData.jti = resData.jti
+                this.globalData.scope = resData.scope
+                this.globalData.expires_in = Date.now() + resData.expires_in * 1000
+              } else {
+                Dialog.alert({
+                  title: '授权异常',
+                  message: resData.msg,
+                }).then(() => {
+                  // on close
+                })
+              }
+            }
           })
         }
       }
