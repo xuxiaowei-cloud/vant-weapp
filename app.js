@@ -56,6 +56,8 @@ App({
                             });
 
                             this.globalData.access_token = access_token
+                            // 当且仅当拥有 refresh_token 授权类型时才有该值（如需实时生效，需要清空权限表、刷新权限表）
+                            this.globalData.refresh_token = resData.refresh_token
                             this.globalData.jti = resData.jti
                             this.globalData.scope = resData.scope
                             this.globalData.expires_in = Date.now() + resData.expires_in * 1000
@@ -101,6 +103,9 @@ App({
     userInfo: null,
     // 用户标识
     openid: null,
+    access_token: null,
+    // 当且仅当拥有 refresh_token 授权类型时才有该值（如需实时生效，需要清空权限表、刷新权限表）
+    refresh_token: null,
     jti: null,
     scope: null,
     expires_in: null
