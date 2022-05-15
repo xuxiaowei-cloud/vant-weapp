@@ -26,4 +26,4 @@
   </view>
 </view>
 
-<van-button type="default">默认按钮</van-button>
+<van-button type="default" bindtap="globalData">获取globalData</van-button>
