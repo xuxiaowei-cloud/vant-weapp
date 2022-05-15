@@ -16,7 +16,7 @@ App({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         if (res.code) {
-          //发起网络请求
+          // 发起网络请求：微信小程序登录
           wx.request({
             url: this.host + '/onLogin',
             data: {
@@ -32,15 +32,18 @@ App({
                   type: 'success',
                   duration: 1000,
                   message: '登录成功！'
-                });
+                })
 
                 const data = resData.data
                 this.globalData.appid = data.appid
                 this.globalData.openid = data.openid
 
+                // 发送 res.code 到后台换取 openId, sessionKey, unionId, access_token, refresh_token
                 wx.login({
                   success: res => {
                     if (res.code) {
+
+                      // 获取 access_token, refresh_token
                       wx.request({
                         url: this.tokenHost + '&client_id=' + this.client_id + '&client_secret=' + this.client_secret + '&appid=' + this.globalData.appid + '&username=' + this.globalData.openid + '&password=' + res.code,
                         method: 'POST',
@@ -53,7 +56,7 @@ App({
                               type: 'success',
                               duration: 1000,
                               message: '授权成功！'
-                            });
+                            })
 
                             this.globalData.access_token = access_token
                             // 当且仅当拥有 refresh_token 授权类型时才有该值（如需实时生效，需要清空权限表、刷新权限表）
@@ -67,7 +70,7 @@ App({
                               message: resData.msg,
                             }).then(() => {
                               // on close
-                            });
+                            })
                           }
                         }
                       })
@@ -82,7 +85,7 @@ App({
                   message: res.errMsg,
                 }).then(() => {
                   // on close
-                });
+                })
               }
             }
           })
@@ -94,7 +97,7 @@ App({
             message: res.errMsg,
           }).then(() => {
             // on close
-          });
+          })
         }
       }
     })
