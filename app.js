@@ -108,7 +108,7 @@ App({
   // 小程序服务地址
   host: 'http://gateway.example.xuxiaowei.cloud:1101/wechat-applet',
   // 授权服务地址：授权类型为密码模式
-  // 客户端类型：wechatApplet（代表微信小程序）
+  // 客户端类型：wechat_applet（代表微信小程序）
   tokenHost: 'http://gateway.example.xuxiaowei.cloud:1101/authorization-server/oauth/token?grant_type=password&client_type=wechat_applet',
   // 密码模式下的客户ID（为了保证安全，请给该用户仅授权：password 模式）
   client_id: 'xuxiaowei_client_wechat_id',
