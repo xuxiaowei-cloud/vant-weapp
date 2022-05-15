@@ -6,7 +6,7 @@
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "徐晓伟微服务",
     "navigationBarTextStyle": "black"
   },
   "usingComponents": {
