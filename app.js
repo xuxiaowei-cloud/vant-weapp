@@ -51,6 +51,15 @@ App({
                   // on close
                 })
               }
+            },
+            fail: res => {
+              console.error(res)
+              Dialog.alert({
+                title: '登录异常',
+                message: '登录时网络异常，稍后再试',
+              }).then(() => {
+                // on close
+              })
             }
           })
         } else {
@@ -102,6 +111,15 @@ App({
                   // on close
                 })
               }
+            },
+            fail: res => {
+              console.error(res)
+              Dialog.alert({
+                title: '授权异常',
+                message: '授权时网络异常，稍后再试',
+              }).then(() => {
+                // on close
+              })
             }
           })
         }
