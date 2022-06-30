@@ -45,3 +45,7 @@
 - 将 [project.config.json](./project.config.json) 中的 `appid` 修改为自己的微信小程序的 `appid`
 - [使用版本 v1.10.3](https://github.com/youzan/vant-weapp/releases/tag/v1.10.3)
 - [修改 app.json](https://vant-contrib.gitee.io/vant-weapp/#/quickstart#bu-zou-er-xiu-gai-app.json)
+
+## 文档
+
+- [js-base64](https://github.com/dankogai/js-base64)

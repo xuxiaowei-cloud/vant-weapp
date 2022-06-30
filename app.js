@@ -2,6 +2,10 @@
 
 import Dialog from '/libs/vant/dialog/dialog'
 import Notify from '/libs/vant/notify/notify'
+import {
+  encode,
+  decode
+} from './utils/base64'
 
 App({
   onLaunch() {
@@ -41,8 +45,16 @@ App({
                 // 当且仅当拥有 refresh_token 授权类型时才有该值（如需实时生效，需要清空权限表、刷新权限表）
                 this.globalData.refresh_token = resData.refresh_token
                 this.globalData.scope = resData.scope
-                this.globalData.expires_in = Date.now() + resData.expires_in * 1000
-                console.log(new Date(this.globalData.expires_in).toISOString())
+
+                let dot1 = access_token.indexOf('.')
+                if (dot1 !== -1) {
+                  this.globalData.header = JSON.parse(decode(access_token.substring(0, dot1)))
+                  let dot2 = access_token.indexOf('.', dot1 + 1)
+                  if (dot2 !== -1) {
+                    this.globalData.payload = JSON.parse(decode(access_token.substring(dot1 + 1, dot2)))
+                  }
+                }
+
               } else {
                 Dialog.alert({
                   title: '授权异常',
@@ -72,7 +84,8 @@ App({
     // 当且仅当拥有 refresh_token 授权类型时才有该值（如需实时生效，需要清空权限表、刷新权限表）
     refresh_token: null,
     scope: null,
-    expires_in: null
+    header: null,
+    payload: null,
   },
   // 小程序服务地址
   wechatHost() {
