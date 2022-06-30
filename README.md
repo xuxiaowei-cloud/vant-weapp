@@ -49,3 +49,4 @@
 ## 文档
 
 - [js-base64](https://github.com/dankogai/js-base64)
+- [crypto-js](https://github.com/brix/crypto-js)
