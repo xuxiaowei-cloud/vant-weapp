@@ -52,6 +52,7 @@ App({
                   let dot2 = access_token.indexOf('.', dot1 + 1)
                   if (dot2 !== -1) {
                     this.globalData.payload = JSON.parse(decode(access_token.substring(dot1 + 1, dot2)))
+                    this.globalData.signature = access_token.substring(dot2 + 1)
                   }
                 }
 
@@ -86,6 +87,7 @@ App({
     scope: null,
     header: null,
     payload: null,
+    signature: null,
   },
   // 小程序服务地址
   wechatHost() {
