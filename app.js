@@ -95,7 +95,7 @@ App({
   },
   // 授权服务地址：授权类型为 OAuth 2.1 自定义拓展的 wechat_miniprogram，基于开源项目：https://gitee.com/xuxiaowei-com-cn/spring-boot-starter-wechat-miniprogram
   tokenHost() {
-    return `${this.host}/passport/oauth2/token?grant_type=wechat_miniprogram&client_id=${this.client_id}&client_secret=${this.client_secret}&appid=wxcf4f3a217a8bc728`
+    return `${this.host}/passport/oauth2/token?grant_type=wechat_miniprogram&client_id=${this.client_id}&client_secret=${this.client_secret}`
   },
   // 小程序服务地址
   host: 'http://127.0.0.1:1101',
