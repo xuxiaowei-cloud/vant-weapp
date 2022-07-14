@@ -60,3 +60,9 @@
         - 基于 JDK 8、Spring Boot 2.7.x、OAuth 2.1、Vite、Vue 3、Element Plus 的微服务
     - [xuxiaowei-cloud-next](https://gitee.com/xuxiaowei-cloud/xuxiaowei-cloud-next)
         - 基于 JDK 17、Spring Boot 3.0.0、OAuth 2.1、Vite、Vue 3、Element Plus 的微服务
+
+## 文档
+
+- vant-contrib
+    - [Gitee](https://vant-contrib.gitee.io/vant-weapp)
+    - [Github](https://vant-ui.github.io/vant-weapp)
