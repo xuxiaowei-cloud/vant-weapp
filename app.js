@@ -14,21 +14,21 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
 
-    // 登录：https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html
-    // 后台使用：https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/login/auth.code2Session.html
     // 授权
     this.accessToken()
   },
   // 授权
   accessToken() {
     // 发送 res.code 到后台换取 openId, sessionKey, unionId, access_token, refresh_token
+    // 登录：https://developers.weixin.qq.com/miniprogram/dev/api/open-api/login/wx.login.html
     wx.login({
       success: res => {
         if (res.code) {
 
           // 获取 access_token, refresh_token
+          // 后台使用：https://developers.weixin.qq.com/miniprogram/dev/api-backend/open-api/login/auth.code2Session.html
           wx.request({
-            url: this.tokenHost() + '&code=' + res.code,
+            url: `${this.tokenHost()}&code=${res.code}`,
             method: 'POST',
             success: res => {
               console.log('授权结果', res)
@@ -93,17 +93,15 @@ App({
   wechatHost() {
     return `${this.host}/wechat_miniprogram`
   },
-  // 授权服务地址：授权类型为密码模式
-  // 客户端类型：wechat_applet（代表微信小程序）
+  // 授权服务地址：授权类型为 OAuth 2.1 自定义拓展的 wechat_miniprogram，基于开源项目：https://gitee.com/xuxiaowei-com-cn/spring-boot-starter-wechat-miniprogram
   tokenHost() {
-    // 此处发送的 client_secret 可以进行加密、签名，并在 https://gitee.com/xuxiaowei-cloud/xuxiaowei-cloud/blob/main/authorization-server/src/main/java/cloud/xuxiaowei/authorizationserver/service/impl/ClientPasswordEncoderImpl.java 中进行验证加密、签名
-    return `${this.host}/passport/oauth2/token?grant_type=wechat_miniprogram&client_id=${this.client_id}&client_secret=${this.client_secret}&appid=wxcf4f3a217a8bc728`
+    return `${this.host}/passport/oauth2/token?grant_type=wechat_miniprogram&client_id=${this.client_id}&client_secret=${this.client_secret}`
   },
   // 小程序服务地址
-  host: 'http://gateway.example.next.xuxiaowei.cloud:1101',
-  // 密码模式下的客户ID（为了保证安全，请给该用户仅授权：password 模式）
+  host: 'http://127.0.0.1:1101',
+  // 小程序客户ID
   client_id: 'xuxiaowei_client_wechat_miniprogram_id',
-  // 密码模式下的客户凭证
+  // 小程序客户秘钥
   client_secret: 'xuxiaowei_client_wechat_miniprogram_secret',
   // 正常响应代码
   ok: '000000'

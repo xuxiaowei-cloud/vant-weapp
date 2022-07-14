@@ -1,8 +1,20 @@
 {
   "pages": [
+    "pages/home1/index",
+    "pages/home2/index",
     "pages/index/index",
     "pages/logs/logs"
   ],
+  "tabBar": {
+    "custom": true,
+    "list": [{
+        "pagePath": "pages/home1/index"
+      },
+      {
+        "pagePath": "pages/home2/index"
+      }
+    ]
+  },
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
