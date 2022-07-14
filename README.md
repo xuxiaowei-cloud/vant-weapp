@@ -35,6 +35,18 @@
     <img alt="CSDN 博客" src="https://img.shields.io/badge/dynamic/json?color=orange&label=CSDN&prefix=%E5%8D%9A%E5%AE%A2&query=%24.data.blog&suffix=%E7%AF%87&url=https%3A%2F%2Fblog.csdn.net%2Fcommunity%2Fhome-api%2Fv1%2Fget-tab-total%3Fusername%3Dqq_32596527">
   </a>
 
+  <a href="https://github.com/youzan/vant-weapp">
+    <img alt="vant-weapp" src="https://img.shields.io/badge/vant weapp-v1.10.3-blue">
+  </a>
+
+  <a href="https://github.com/dankogai/js-base64">
+    <img alt="js-base64" src="https://img.shields.io/badge/js base64-3.7.2-blue">
+  </a>
+
+  <a href="https://github.com/brix/crypto-js">
+    <img alt="js-base64" src="https://img.shields.io/badge/crypto js-4.1.1-blue">
+  </a>
+
   <a href="https://www.apache.org/licenses/LICENSE-2.0">
     <img alt="code style" src="https://img.shields.io/badge/license-Apache 2-blue">
   </a>
@@ -43,10 +55,3 @@
 ## 使用方式
 
 - 将 [project.config.json](./project.config.json) 中的 `appid` 修改为自己的微信小程序的 `appid`
-- [使用版本 v1.10.3](https://github.com/youzan/vant-weapp/releases/tag/v1.10.3)
-- [修改 app.json](https://vant-contrib.gitee.io/vant-weapp/#/quickstart#bu-zou-er-xiu-gai-app.json)
-
-## 文档
-
-- [js-base64](https://github.com/dankogai/js-base64)
-- [crypto-js](https://github.com/brix/crypto-js)
