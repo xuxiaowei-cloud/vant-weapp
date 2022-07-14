@@ -1,5 +1,15 @@
 // pages/home1/index.js
 Component({
+  pageLifetimes: {
+    show() {
+      if (typeof this.getTabBar === 'function' &&
+        this.getTabBar()) {
+        this.getTabBar().setData({
+          selected: 0
+        })
+      }
+    }
+  },
   /**
    * 组件的属性列表
    */
