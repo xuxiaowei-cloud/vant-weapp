@@ -55,3 +55,8 @@
 ## 使用方式
 
 - 将 [project.config.json](./project.config.json) 中的 `appid` 修改为自己的微信小程序的 `appid`
+- 后端使用
+    - [xuxiaowei-cloud](https://gitee.com/xuxiaowei-cloud/xuxiaowei-cloud)
+        - 基于 JDK 8、Spring Boot 2.7.x、OAuth 2.1、Vite、Vue 3、Element Plus 的微服务
+    - [xuxiaowei-cloud-next](https://gitee.com/xuxiaowei-cloud/xuxiaowei-cloud-next)
+        - 基于 JDK 17、Spring Boot 3.0.0、OAuth 2.1、Vite、Vue 3、Element Plus 的微服务
