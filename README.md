@@ -105,3 +105,7 @@
 - vant-contrib
     - [Gitee](https://vant-contrib.gitee.io/vant-weapp)
     - [Github](https://vant-ui.github.io/vant-weapp)
+
+## Stargazers over time
+
+[![Stargazers over time](https://starchart.cc/xuxiaowei-cloud/vant-weapp.svg)](https://starchart.cc/xuxiaowei-cloud/vant-weapp)
