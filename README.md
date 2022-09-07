@@ -75,7 +75,7 @@
   </a>
 
   <a href="https://github.com/youzan/vant-weapp">
-    <img alt="vant-weapp" src="https://img.shields.io/badge/vant weapp-v1.10.3-blue">
+    <img alt="vant-weapp" src="https://img.shields.io/badge/vant weapp-v1.10.5-blue">
   </a>
 
   <a href="https://github.com/dankogai/js-base64">
