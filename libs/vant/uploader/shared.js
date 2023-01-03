@@ -28,3 +28,26 @@ export const chooseVideoProps = {
         value: 'back',
     },
 };
+// props for choose media
+export const chooseMediaProps = {
+    capture: {
+        type: Array,
+        value: ['album', 'camera'],
+    },
+    mediaType: {
+        type: Array,
+        value: ['image', 'video'],
+    },
+    maxDuration: {
+        type: Number,
+        value: 60,
+    },
+    camera: {
+        type: String,
+        value: 'back',
+    },
+};
+// props for choose file
+export const chooseMessageFileProps = {
+    extension: null,
+};
