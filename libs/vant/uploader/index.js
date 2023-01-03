@@ -1,9 +1,9 @@
 import { VantComponent } from '../common/component';
 import { isImageFile, chooseFile, isVideoFile } from './utils';
-import { chooseImageProps, chooseVideoProps } from './shared';
+import { chooseImageProps, chooseVideoProps, chooseMediaProps, chooseMessageFileProps, } from './shared';
 import { isBoolean, isPromise } from '../common/validator';
 VantComponent({
-    props: Object.assign(Object.assign({ disabled: Boolean, multiple: Boolean, uploadText: String, useBeforeRead: Boolean, afterRead: null, beforeRead: null, previewSize: {
+    props: Object.assign(Object.assign(Object.assign(Object.assign({ disabled: Boolean, multiple: Boolean, uploadText: String, useBeforeRead: Boolean, afterRead: null, beforeRead: null, previewSize: {
             type: null,
             value: 80,
         }, name: {
@@ -40,7 +40,7 @@ VantComponent({
         }, uploadIcon: {
             type: String,
             value: 'photograph',
-        } }, chooseImageProps), chooseVideoProps),
+        } }, chooseImageProps), chooseVideoProps), chooseMediaProps), chooseMessageFileProps),
     data: {
         lists: [],
         isInCount: true,
@@ -129,11 +129,20 @@ VantComponent({
                 return;
             const { index } = event.currentTarget.dataset;
             const { lists } = this.data;
+            const sources = [];
+            const current = lists.reduce((sum, cur, curIndex) => {
+                if (!isVideoFile(cur)) {
+                    return sum;
+                }
+                sources.push(Object.assign(Object.assign({}, cur), { type: 'video' }));
+                if (curIndex < index) {
+                    sum++;
+                }
+                return sum;
+            }, 0);
             wx.previewMedia({
-                sources: lists
-                    .filter((item) => isVideoFile(item))
-                    .map((item) => (Object.assign(Object.assign({}, item), { type: 'video' }))),
-                current: index,
+                sources,
+                current,
                 fail() {
                     wx.showToast({ title: '预览视频失败', icon: 'none' });
                 },
