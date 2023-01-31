@@ -56,6 +56,8 @@ App({
                   }
                 }
 
+                console.log(this.globalData)
+
               } else {
                 Dialog.alert({
                   title: '授权异常',
